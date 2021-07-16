@@ -16,3 +16,6 @@
 [submodule "sfml"]
 	path = sfml
 	url = https://github.com/SFML/SFML
+[submodule "lua"]
+	path = lua
+	url = https://github.com/kinbei/lua

@@ -9,34 +9,19 @@ namespace Editor {
 EditorPlugin* EditorPlugin::instance = nullptr;
 
 static const char* toolsbar_rcss = R"RCSS(
-body
+#pseudo
 {
-	width: 80dp;
 	height: 100%;
-	margin-top: 0dp;
-	margin-right: 20dp;
-	margin-left: 0dp;
-}
-div#rmlui-editor-toolsbar
-{
-	position: relative;
-	width: auto;
-	height: 400px;
-	overflow: auto;
-	background: #FF00FF;
-	border-width: 0dp;
-	border-top-width: 0px;
+	background-color: #ddd;
+	display: inline-block;
 }
 #pseudo pseudo
 {
-	padding: 0 8dp 0 3dp;
 	background-color: #ddd;
-	border: 2px #aaa;
+	border: 1px #aaa;
 	display: inline-block;
 }
 )RCSS";
-
-// background: #565656;
 
 static const char* toolsbar_rml = R"RML(
 <div id="rmlui-editor-toolsbar">

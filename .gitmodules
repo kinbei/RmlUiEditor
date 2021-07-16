@@ -10,3 +10,6 @@
 [submodule "SDL2-devel"]
 	path = SDL2-devel
 	url = https://github.com/kinbei/SDL2-devel
+[submodule "glew"]
+	path = glew
+	url = https://github.com/kinbei/glew

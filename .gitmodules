@@ -13,3 +13,6 @@
 [submodule "glew"]
 	path = glew
 	url = https://github.com/kinbei/glew
+[submodule "sfml"]
+	path = sfml
+	url = https://github.com/SFML/SFML

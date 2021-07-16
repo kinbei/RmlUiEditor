@@ -32,6 +32,7 @@
 #include <Shell.h>
 #include <ShellRenderInterfaceOpenGL.h>
 #include "DragListener.h"
+#include "Editor.h"
 
 Rml::Context* context = nullptr;
 
@@ -87,7 +88,6 @@ int main(int RMLUI_UNUSED_PARAMETER(argc), char** RMLUI_UNUSED_PARAMETER(argv))
 
 	ShellSystemInterface system_interface;
 	Rml::SetSystemInterface(&system_interface);
-
 	Rml::Initialise();
 
 	// Create the main RmlUi context and set it on the shell's input layer.
@@ -100,17 +100,15 @@ int main(int RMLUI_UNUSED_PARAMETER(argc), char** RMLUI_UNUSED_PARAMETER(argv))
 	}
 
 	Rml::Debugger::Initialise(context);
+	Rml::Editor::Initialise(context);
 	Input::SetContext(context);
 	Shell::SetContext(context);
-
 	Shell::LoadFonts("assets/");
 
 	// Load and show the demo document.
 	if (Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml"))
 	{
 		document->SetId("workspace");
-
-		DragListener::RegisterDraggableContainer(document->GetElementById("window"));
 		document->Show();
 	}
 

@@ -11,9 +11,8 @@ EditorPlugin* EditorPlugin::instance = nullptr;
 static const char* toolsbar_rcss = R"RCSS(
 body
 {
-	width: 28dp;
+	width: 80dp;
 	height: 100%;
-	min-width: 80dp;
 	margin-top: 0dp;
 	margin-right: 20dp;
 	margin-left: 0dp;
@@ -22,22 +21,12 @@ div#rmlui-editor-toolsbar
 {
 	position: relative;
 	width: auto;
-	height: 200px;
+	height: 400px;
 	overflow: auto;
-	background: #565656;
+	background: #FF00FF;
 	border-width: 0dp;
 	border-top-width: 0px;
 }
-div#rmlui-editor-toolsbar div div
-{
-	font-size: 12dp;
-	padding-left: 10dp;
-}
-div#rmlui-editor-toolsbar .name
-{
-	color: #610;
-}
-
 #pseudo pseudo
 {
 	padding: 0 8dp 0 3dp;
@@ -45,12 +34,9 @@ div#rmlui-editor-toolsbar .name
 	border: 2px #aaa;
 	display: inline-block;
 }
-#pseudo pseudo.active
-{
-	border-color: #8af;
-	background-color: #eef;
-}
 )RCSS";
+
+// background: #565656;
 
 static const char* toolsbar_rml = R"RML(
 <div id="rmlui-editor-toolsbar">

@@ -8,14 +8,14 @@ namespace Editor {
 
 EditorPlugin* EditorPlugin::instance = nullptr;
 
-static const char* toolsbar_rcss = R"RCSS(
-#pseudo
+static const char* editor_rcss = R"RCSS(
+#tools-bar
 {
 	height: 100%;
 	background-color: #ddd;
 	display: inline-block;
 }
-#pseudo pseudo
+#tools-bar pseudo
 {
 	background-color: #ddd;
 	border: 1px #aaa;
@@ -23,13 +23,15 @@ static const char* toolsbar_rcss = R"RCSS(
 }
 )RCSS";
 
-static const char* toolsbar_rml = R"RML(
-<div id="rmlui-editor-toolsbar">
-	<div id="pseudo">
-		<pseudo name="hover" class="active" ><img id = "tools-bar-text" src = "assets/high_scores_alien_1.tga" /></pseudo>
-		<span id="extra"></span>
-	</div>
-</div>
+static const char* editor_rml = R"RML(
+<rml>
+	<body>
+		<div id="tools-bar">
+			<pseudo><img id = "tools-bar-text" src = "assets/high_scores_alien_1.tga" /></pseudo>
+			<span id="extra"></span>
+		</div>
+	</body>
+</rml>
 )RML";
 
 EditorPlugin::EditorPlugin()
@@ -59,10 +61,10 @@ bool EditorPlugin::Initialise(Context* context)
 	if (!document)
 		return false;
 
-	document->SetInnerRML(toolsbar_rml);
+	document->SetInnerRML(editor_rml);
 	document->Show();
 
-	SharedPtr<StyleSheetContainer> style_sheet = Factory::InstanceStyleSheetString(String(toolsbar_rcss));
+	SharedPtr<StyleSheetContainer> style_sheet = Factory::InstanceStyleSheetString(String(editor_rcss));
 	if (!style_sheet)
 		return false;
 

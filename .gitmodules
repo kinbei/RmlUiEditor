@@ -1,0 +1,21 @@
+[submodule "RmlUi"]
+	path = RmlUi
+	url = https://github.com/mikke89/RmlUi
+[submodule "freetype2"]
+	path = freetype2
+	url = https://git.savannah.gnu.org/git/freetype/freetype2.git
+[submodule "SDL_image"]
+	path = SDL_image
+	url = https://github.com/libsdl-org/SDL_image
+[submodule "SDL2-devel"]
+	path = SDL2-devel
+	url = https://github.com/kinbei/SDL2-devel
+[submodule "glew"]
+	path = glew
+	url = https://github.com/kinbei/glew
+[submodule "sfml"]
+	path = sfml
+	url = https://github.com/SFML/SFML
+[submodule "lua"]
+	path = lua
+	url = https://github.com/kinbei/lua

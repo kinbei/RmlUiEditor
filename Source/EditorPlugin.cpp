@@ -37,7 +37,7 @@ body
 	left: 71px;
 	width: 100%;
 	height: 100%;
-	background-color:#ff00ff;
+	background-color:transparent;
 }
 )RCSS";
 
@@ -121,6 +121,25 @@ void EditorPlugin::__ProcessClickEvent(Event& event)
 		element->SetProperty(Rml::PropertyId::Display, Property(Style::Display::None));
 
 		workspace_document->GetElementById("windows")->SetProperty(PropertyId::ZIndex, Property(1.0f, Property::NUMBER));
+
+		using namespace Rml;
+		Vector2f mouse_pos(event.GetParameter("mouse_x", 0.0f), event.GetParameter("mouse_y", 0.0f));
+
+		Rml::ElementPtr new_element = workspace_document->CreateElement("text");
+		new_element->SetInnerRML(R"RCSS(<label><input type = "checkbox" value = "pizza" / > Pizza< / label>)RCSS");
+		new_element->SetProperty(PropertyId::Position, Property(Style::Position::Absolute));
+		new_element->SetProperty(Rml::PropertyId::Left, Rml::Property(mouse_pos.x - workspace_document->GetAbsoluteLeft(), Rml::Property::DP));
+		new_element->SetProperty(Rml::PropertyId::Top, Rml::Property(mouse_pos.y - workspace_document->GetAbsoluteTop(), Rml::Property::DP));
+
+		float max_zindex = 0.0;
+		for (int i = 0; i < workspace_document->GetNumChildren(); ++i)
+		{
+			if (max_zindex < workspace_document->GetChild(i)->GetZIndex())
+				max_zindex = workspace_document->GetChild(i)->GetZIndex();
+		}
+		new_element->SetProperty(PropertyId::ZIndex, Property(max_zindex + 1.0, Property::NUMBER));
+
+		workspace_document->GetElementById("window")->InsertBefore(std::move(new_element), workspace_document->GetElementById("window")->GetFirstChild());
 	}
 }
 

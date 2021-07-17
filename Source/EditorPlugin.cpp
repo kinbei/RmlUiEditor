@@ -11,12 +11,16 @@ EditorPlugin* EditorPlugin::instance = nullptr;
 static const char* editor_rcss = R"RCSS(
 #tools-bar
 {
+	width: 70px;
 	height: 100%;
 	background-color: #ddd;
 	display: inline-block;
 }
 #tools-bar pseudo
 {
+	position: absolute;
+	left: 2px;
+	top: 2px;
 	background-color: #ddd;
 	border: 1px #aaa;
 	display: inline-block;

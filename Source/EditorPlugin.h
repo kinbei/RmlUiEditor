@@ -17,9 +17,6 @@ public:
 	bool Initialise(Context* context);
 
 	///
-	bool SetContext(Context* context);
-
-	///
 	static EditorPlugin* GetInstance();
 
 	/// Process the incoming Event

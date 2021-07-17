@@ -76,12 +76,6 @@ bool EditorPlugin::Initialise(Context* context)
 	return true;
 }
 
-///
-bool EditorPlugin::SetContext(Context* context)
-{
-	return true;
-}
-
 void EditorPlugin::ProcessEvent(Event& event)
 {
 

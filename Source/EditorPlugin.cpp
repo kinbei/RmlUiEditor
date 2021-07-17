@@ -30,9 +30,8 @@ static const char* editor_rcss = R"RCSS(
 static const char* editor_rml = R"RML(
 <rml>
 	<body>
-		<div id="tools-bar">
+		<div id = "tools-bar">
 			<pseudo><img id = "tools-bar-text" src = "assets/high_scores_alien_1.tga" /></pseudo>
-			<span id="extra"></span>
 		</div>
 	</body>
 </rml>
@@ -73,12 +72,29 @@ bool EditorPlugin::Initialise(Context* context)
 		return false;
 
 	document->SetStyleSheetContainer(std::move(style_sheet));
+
+	//
+	Element* tools_bar_text = document->GetElementById("tools-bar-text");
+	tools_bar_text->AddEventListener(EventId::Click, this);
 	return true;
+}
+
+void __ProcessClickEvent(Event& evnet)
+{
+
 }
 
 void EditorPlugin::ProcessEvent(Event& event)
 {
+	Rml::EventId event_id = event.GetId();
+	switch (event_id) {
+	case EventId::Click:
+	{
+		__ProcessClickEvent(event);
+	}
+	break;
 
+	}
 }
 
 }

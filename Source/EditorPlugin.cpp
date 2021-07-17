@@ -115,6 +115,8 @@ void EditorPlugin::__ProcessClickEvent(Event& event)
 	}
 	else if(event.GetTargetElement()->GetId() == "workspace")
 	{
+		system_interface->SetMouseCursor("");
+
 		Rml::Element* element = document->GetElementById("workspace");
 		element->SetProperty(Rml::PropertyId::Display, Property(Style::Display::None));
 

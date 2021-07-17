@@ -86,8 +86,7 @@ void __ProcessClickEvent(Event& evnet)
 
 void EditorPlugin::ProcessEvent(Event& event)
 {
-	Rml::EventId event_id = event.GetId();
-	switch (event_id) {
+	switch (event.GetId()) {
 	case EventId::Click:
 	{
 		__ProcessClickEvent(event);

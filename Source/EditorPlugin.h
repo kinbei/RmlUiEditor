@@ -14,7 +14,7 @@ public:
 	~EditorPlugin();
 
 	///
-	bool Initialise(Context* context);
+	bool Initialise(Context* context, Rml::ElementDocument* workspace_document);
 
 	///
 	static EditorPlugin* GetInstance();
@@ -27,8 +27,14 @@ private:
 	Context* host_context;
 	// The context of Editor.
 	Context* editor_context;
+	//
+	Rml::ElementDocument* workspace_document;
+	//
+	Rml::ElementDocument* document;
 	// Singleton instance
 	static EditorPlugin* instance;
+
+	void __ProcessClickEvent(Event& evnet);
 };
 
 }

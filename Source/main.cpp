@@ -99,18 +99,23 @@ int main(int RMLUI_UNUSED_PARAMETER(argc), char** RMLUI_UNUSED_PARAMETER(argv))
 		return -1;
 	}
 
-	Rml::Debugger::Initialise(context);
-	Rml::Editor::Initialise(context);
 	Input::SetContext(context);
 	Shell::SetContext(context);
 	Shell::LoadFonts("assets/");
 
 	// Load and show the demo document.
-	if (Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml"))
+	Rml::ElementDocument* document = context->LoadDocument("assets/demo.rml");
+	if (document == nullptr)
 	{
-		document->SetId("workspace");
-		document->Show();
+		Rml::Shutdown();
+		Shell::Shutdown();
+		return -1;
 	}
+
+	Rml::Debugger::Initialise(context);
+	Rml::Editor::Initialise(context, document);
+	// document->SetId("workspace");
+	document->Show();
 
 	Shell::EventLoop(GameLoop);
 

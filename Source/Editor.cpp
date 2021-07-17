@@ -6,9 +6,9 @@ namespace Rml {
 namespace Editor {
 
 /// 
-bool Initialise(Context* context) 
+bool Initialise(Context* context, Rml::ElementDocument* workspace_document)
 {
-	return EditorPlugin::GetInstance()->Initialise(context);
+	return EditorPlugin::GetInstance()->Initialise(context, workspace_document);
 }
 
 /// 

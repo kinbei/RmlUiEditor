@@ -22,7 +22,7 @@
 			}
 		</style>
 	</head>
-	<body template="window">
+	<body id = "windows" template="window">
 		This is a sample.
 	</body>
 </rml>

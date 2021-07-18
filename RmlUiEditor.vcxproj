@@ -19,14 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\DragListener.cpp" />
-    <ClCompile Include="Source\Editor.cpp" />
     <ClCompile Include="Source\EditorPlugin.cpp" />
     <ClCompile Include="Source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\DragListener.h" />
-    <ClInclude Include="Source\Editor.h" />
     <ClInclude Include="Source\EditorPlugin.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

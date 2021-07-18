@@ -31,8 +31,7 @@
 #include <Input.h>
 #include <Shell.h>
 #include <ShellRenderInterfaceOpenGL.h>
-#include "DragListener.h"
-#include "Editor.h"
+#include "EditorPlugin.h"
 
 Rml::Context* context = nullptr;
 
@@ -113,7 +112,8 @@ int main(int RMLUI_UNUSED_PARAMETER(argc), char** RMLUI_UNUSED_PARAMETER(argv))
 	}
 
 	Rml::Debugger::Initialise(context);
-	Rml::Editor::Initialise(context, document);
+	Rml::Editor::EditorPlugin::GetInstance()->Initialise(context, document);
+
 	// document->SetId("workspace");
 	document->Show();
 

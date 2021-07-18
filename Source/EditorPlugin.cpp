@@ -110,7 +110,7 @@ void EditorPlugin::__ProcessClickEvent(Event& event)
 		system_interface->SetMouseCursor("cross");
 		
 		Rml::Element* element = document->GetElementById("workspace");
-		element->RemoveProperty(Rml::PropertyId::Display);
+		element->SetProperty(Rml::PropertyId::Visibility, Property(Style::Visibility::Visible));
 
 		workspace_document->GetElementById("windows")->SetProperty(PropertyId::ZIndex, Property(0.0f, Property::NUMBER));
 	}
@@ -119,7 +119,7 @@ void EditorPlugin::__ProcessClickEvent(Event& event)
 		system_interface->SetMouseCursor("");
 
 		Rml::Element* element = document->GetElementById("workspace");
-		element->SetProperty(Rml::PropertyId::Display, Property(Style::Display::None));
+		element->SetProperty(Rml::PropertyId::Visibility, Property(Style::Visibility::Hidden));
 
 		workspace_document->GetElementById("windows")->SetProperty(PropertyId::ZIndex, Property(1.0f, Property::NUMBER));
 
